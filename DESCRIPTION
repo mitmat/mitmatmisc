@@ -1,0 +1,12 @@
+Package: mitmatmisc
+Type: Package
+Title: Package containing miscellaneous helper functions
+Version: 0.1.0
+Authors@R: person("Michael", "Matiu", email = "michael.matiu@eurac.edu",
+                  role = c("aut", "cre"))
+Maintainer: Michael Matiu <michael.matiu@eurac.edu>
+Description: Misc functions.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
