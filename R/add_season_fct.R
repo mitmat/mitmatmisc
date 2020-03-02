@@ -10,10 +10,10 @@
 #'
 #' @return Nothing, adds column by reference.
 #' @export
+#' @import data.table
 #'
 #' @examples
 #'
-#' library(data.table)
 #' dat <- data.table(month = sample(1:12, 30, replace = T))
 #'
 #' add_season_fct(dat)
@@ -27,6 +27,7 @@ add_season_fct <- function(ref_dat,
                            add_n_days = F){
 
   if(!is.data.table(ref_dat)) stop("Only works if input is a data.table")
+  if(!hasName(ref_dat, "month")) stop("Input data does not have 'month' column")
 
   xx_levels <- c("DJF", "MAM", "JJA", "SON")
   xx_season_name <- c("DJF", "DJF", rep(c("MAM", "JJA", "SON"), each = 3), "DJF")
@@ -37,12 +38,9 @@ add_season_fct <- function(ref_dat,
     xx_levels <- xx_levels[c(i_first : 4, 1 : (i_first - 1))]
   }
 
-  set(ref_dat,
-      j = "season",
-      value = factor(xx_season_name[ref_dat$month],
-                     levels = xx_levels))
+  ref_dat[, season := factor(xx_season_name[month], levels = xx_levels)]
 
-  if(add_n_days) set(ref_dat, j = "n_days_season", value = xx_season_days[ref_dat$month])
+  if(add_n_days) ref_dat[, n_days_season := xx_season_days[month]]
 
 
 }

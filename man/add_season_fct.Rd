@@ -23,7 +23,6 @@ has column named "month", and adds a column named "season".
 }
 \examples{
 
-library(data.table)
 dat <- data.table(month = sample(1:12, 30, replace = T))
 
 add_season_fct(dat)
