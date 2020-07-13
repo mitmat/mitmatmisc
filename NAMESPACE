@@ -2,6 +2,7 @@
 
 export("%+%")
 export(add_hydro_year)
+export(add_month_fct)
 export(add_season_fct)
 export(init_parallel_ubuntu)
 export(init_parallel_win10)
