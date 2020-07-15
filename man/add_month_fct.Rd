@@ -17,8 +17,8 @@ Nothing, adds column by reference.
 \description{
 Adds the month abbreviations (Jan, Feb, ...) as a factor (so to keep the annual order),
 with the option to define the first month (as factor level), so also hydrological years
-are possible (Oct, Nov, Dec, Jan, ..). Requires that input data has column named "month",
-and adds a column named "month_fct".
+are possible (Oct, Nov, Dec, Jan, ..). Requires that input data has either a "month"
+or "date" column, and adds a column named "month_fct".
 }
 \examples{
 
