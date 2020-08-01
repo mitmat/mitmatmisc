@@ -4,7 +4,7 @@
 #' is identified by the starting month, e.g. 2002-10 to 2002-12 and 2003-01 to 2003-09
 #' will have the same hydro_year=2002.
 #'
-#' Requires that input data has column named "date".
+#' Requires that input data has column(s) "date" or c("year", "month").
 #'
 #' @param ref_dat a \code{\link[data.table]{data.table}} for which to add hydro_year column
 #' @param start_month numeric, which should be the first month of the hydro_year
@@ -28,10 +28,16 @@ add_hydro_year <- function(ref_dat,
                            start_month = 10){
 
   if(!is.data.table(ref_dat)) stop("Only works if input is a data.table")
-  if(!hasName(ref_dat, "date")) stop("Input data does not have 'date' column")
+  if(!(hasName(ref_dat, "date") | all(hasName(ref_dat, c("year", "month"))))) {
+      stop("Input data must have 'date' or c('year','month') as column(s)")
+  }
 
-  ref_dat[, hydro_year := year(date)]
-  ref_dat[month(date) < start_month, hydro_year := hydro_year - 1L]
-
+  if(hasName(ref_dat, "date")){
+    ref_dat[, hydro_year := year(date)]
+    ref_dat[month(date) < start_month, hydro_year := hydro_year - 1L]
+  } else {
+    ref_dat[, hydro_year := year]
+    ref_dat[month < start_month, hydro_year := hydro_year - 1L]
+  }
 
 }

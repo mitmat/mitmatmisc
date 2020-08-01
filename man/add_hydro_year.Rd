@@ -20,7 +20,7 @@ is identified by the starting month, e.g. 2002-10 to 2002-12 and 2003-01 to 2003
 will have the same hydro_year=2002.
 }
 \details{
-Requires that input data has column named "date".
+Requires that input data has column(s) "date" or c("year", "month").
 }
 \examples{
 
