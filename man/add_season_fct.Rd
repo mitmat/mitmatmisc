@@ -4,7 +4,7 @@
 \alias{add_season_fct}
 \title{Add a season factor column to a data.table (by reference)}
 \usage{
-add_season_fct(ref_dat, first_season = "DJF", add_n_days = F)
+add_season_fct(ref_dat, first_season = "DJF", add_n_days = FALSE)
 }
 \arguments{
 \item{ref_dat}{a \code{\link[data.table]{data.table}} for which to add season column}
@@ -23,11 +23,11 @@ has column named "month", and adds a column named "season".
 }
 \examples{
 
-dat <- data.table(month = sample(1:12, 30, replace = T))
+dat <- data.table::data.table(month = sample(1:12, 30, replace = TRUE))
 
 add_season_fct(dat)
 str(dat)
 
-add_season_fct(dat, first_season = "JJA", add_n_days = T)
+add_season_fct(dat, first_season = "JJA", add_n_days = TRUE)
 str(dat)
 }

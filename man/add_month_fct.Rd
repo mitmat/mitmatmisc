@@ -22,7 +22,7 @@ or "date" column, and adds a column named "month_fct".
 }
 \examples{
 
-dat <- data.table(month = sample(1:12, 30, replace = T))
+dat <- data.table::data.table(month = sample(1:12, 30, replace = TRUE))
 
 add_month_fct(dat)
 str(dat)

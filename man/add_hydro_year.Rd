@@ -25,8 +25,11 @@ Requires that input data has column(s) "date" or c("year", "month").
 \examples{
 
 
-dat <- data.table(date = lubridate::ymd(c("2002-08-15", "2002-09-30", "2002-10-01", "2002-12-31",
-                                          "2003-01-01", "2003-08-15", "2003-09-30", "2003-10-01")))
+dat <- data.table::data.table(
+  date = lubridate::ymd(c("2002-08-15", "2002-09-30", "2002-10-01", "2002-12-31",
+                          "2003-01-01", "2003-08-15", "2003-09-30", "2003-10-01"))
+)
+
 dat
 add_hydro_year(dat)
 dat

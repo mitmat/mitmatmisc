@@ -14,7 +14,7 @@
 #'
 #' @examples
 #'
-#' dat <- data.table(month = sample(1:12, 30, replace = T))
+#' dat <- data.table::data.table(month = sample(1:12, 30, replace = TRUE))
 #'
 #' add_month_fct(dat)
 #' str(dat)
@@ -31,16 +31,10 @@ add_month_fct <- function(ref_dat,
     stop("Input data must have a 'month' or 'date' column")
   }
 
-  xx_levels <- month.abb
-
-  if(first_month != 1) {
-    xx_levels <- xx_levels[c(first_month : 12, 1 : (first_month - 1))]
-  }
-
   if(hasName(ref_dat, "month")){
-    ref_dat[, month_fct := factor(month.abb[month], levels = xx_levels)]
+    ref_dat[, month_fct := month_fct(month, first_month = first_month)]
   } else {
-    ref_dat[, month_fct := factor(month.abb[month(date)], levels = xx_levels)]
+    ref_dat[, month_fct := month_fct(month(date), first_month = first_month)]
   }
 
 

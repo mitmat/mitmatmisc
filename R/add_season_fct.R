@@ -14,33 +14,27 @@
 #'
 #' @examples
 #'
-#' dat <- data.table(month = sample(1:12, 30, replace = T))
+#' dat <- data.table::data.table(month = sample(1:12, 30, replace = TRUE))
 #'
 #' add_season_fct(dat)
 #' str(dat)
 #'
-#' add_season_fct(dat, first_season = "JJA", add_n_days = T)
+#' add_season_fct(dat, first_season = "JJA", add_n_days = TRUE)
 #' str(dat)
 
 add_season_fct <- function(ref_dat,
                            first_season = "DJF",
-                           add_n_days = F){
+                           add_n_days = FALSE){
 
   if(!is.data.table(ref_dat)) stop("Only works if input is a data.table")
   if(!hasName(ref_dat, "month")) stop("Input data does not have 'month' column")
 
-  xx_levels <- c("DJF", "MAM", "JJA", "SON")
-  xx_season_name <- c("DJF", "DJF", rep(c("MAM", "JJA", "SON"), each = 3), "DJF")
-  xx_season_days <- c(90, 90, rep(c(92, 92, 91), each = 3), 90)
+  ref_dat[, season := season_fct(month, first_season = first_season)]
 
-  if(first_season != "DJF") {
-    i_first <- which(xx_levels == first_season)
-    xx_levels <- xx_levels[c(i_first : 4, 1 : (i_first - 1))]
+  if(add_n_days) {
+    xx_season_days <- c(90, 90, rep(c(92, 92, 91), each = 3), 90)
+    ref_dat[, n_days_season := xx_season_days[month]]
   }
-
-  ref_dat[, season := factor(xx_season_name[month], levels = xx_levels)]
-
-  if(add_n_days) ref_dat[, n_days_season := xx_season_days[month]]
 
 
 }
