@@ -15,6 +15,3 @@ Nothing.
 \description{
 Initialize the parallel backend for Ubuntu
 }
-\examples{
-
-}

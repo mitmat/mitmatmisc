@@ -12,6 +12,7 @@
 #' @return Nothing, adds column by reference.
 #' @export
 #' @import data.table
+#' @importFrom utils hasName
 #'
 #' @examples
 #'

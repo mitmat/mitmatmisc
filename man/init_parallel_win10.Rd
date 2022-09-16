@@ -15,6 +15,3 @@ Nothing.
 \description{
 Initialize the parallel backend for Windows 10
 }
-\examples{
-
-}

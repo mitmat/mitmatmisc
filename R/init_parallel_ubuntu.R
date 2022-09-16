@@ -5,13 +5,12 @@
 #' @return Nothing.
 #' @export
 #'
-#' @examples
-#'
 init_parallel_ubuntu <- function(ncores = NULL){
-  library(doParallel)
-  library(foreach)
+
   if(is.null(ncores)) {
     ncores <- parallel::detectCores() - 1
   }
-  registerDoParallel(cores = ncores)
+
+  doParallel::registerDoParallel(cores = ncores)
+
 }

@@ -5,14 +5,13 @@
 #' @return Nothing.
 #' @export
 #'
-#' @examples
-#'
 init_parallel_win10 <- function(ncores = NULL){
-  library(parallel)
-  library(doParallel)
+
   if(is.null(ncores)) {
-    ncores <- detectCores() - 1
+    ncores <- parallel::detectCores() - 1
   }
-  cluster <- makeCluster(ncores)
-  registerDoParallel(cluster)
+
+  cluster <- parallel::makeCluster(ncores)
+  doParallel::registerDoParallel(cl = cluster)
+
 }
