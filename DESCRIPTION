@@ -10,10 +10,12 @@ Description:
     And some to initialize a parallel backend for ubuntu and win10.
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports: 
     data.table,
     parallel,
-    doParallel
+    doParallel,
+    magrittr,
+    readr
 Suggests:
     lubridate
