@@ -1,7 +1,7 @@
 Package: mitmatmisc
 Type: Package
 Title: Package containing miscellaneous helper functions
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Michael", "Matiu", email = "michaelmatiu@gmail.com",
                   role = c("aut", "cre"))
 Maintainer: Michael Matiu <michaelmatiu@gmail.com>
