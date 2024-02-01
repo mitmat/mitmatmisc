@@ -4,17 +4,19 @@
 \alias{calc_pctl}
 \title{Calculate percentiles}
 \usage{
-calc_pctl(x, p, ...)
+calc_pctl(x, p, prefix = "p", ...)
 }
 \arguments{
 \item{x}{numeric vector}
 
 \item{p}{same as probs in \code{\link{quantile}}}
 
+\item{prefix}{prefix to add before percentile value (default: 'p')}
+
 \item{...}{other arguments passed to \code{\link{quantile}}}
 }
 \value{
-list of percentiles with names "pX", where X is the
+list of percentiles with names "prefixX", where X is the
   percentile (probs*100).
 }
 \description{
@@ -24,5 +26,6 @@ Thus, also easier usable within j of data.table's.
 \examples{
 x <- rnorm(1000)
 calc_pctl(x)
+calc_pctl(x, prefix = "pctl")
 
 }
