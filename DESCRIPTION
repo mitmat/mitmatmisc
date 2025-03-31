@@ -1,7 +1,7 @@
 Package: mitmatmisc
 Type: Package
 Title: Package containing miscellaneous helper functions
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: person("Michael", "Matiu", email = "michaelmatiu@gmail.com",
                   role = c("aut", "cre"))
 Maintainer: Michael Matiu <michaelmatiu@gmail.com>
@@ -10,13 +10,14 @@ Description:
     And some to initialize a parallel backend for ubuntu and win10.
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Imports: 
     data.table,
     parallel,
     doParallel,
     doMC,
     magrittr,
-    readr
+    readr,
+    stringi
 Suggests:
     lubridate
